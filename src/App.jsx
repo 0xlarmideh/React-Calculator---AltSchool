@@ -5,10 +5,10 @@ export default function Calculator() {
   const calcInput = useRef(null);
   const [result, setResult] = useState();
   // Set focus to the calculator input
-  useEffect(() => {
-    setResult(0);
-    calcInput.current.focus();
- }, [])
+   useEffect(() => {
+     // setResult(0);
+     // calcInput.current.focus();
+  }, [])
 
   function addToInput(e) {
     calcInput.current.focus();
@@ -17,18 +17,19 @@ export default function Calculator() {
     e.preventDefault();
   }
 
+  // Error boundaries
+  
   // Function to do the calculations once the equate button is pressed
   function handleClick(event) {
-    const elements = event.target.elements
-    const { values } = elements;
-    const x = eval(`${values.value}`)
+    const elements = calcInput.current.value
+    const x = eval(`${elements}`)
 
     // Check if input value is empty
-    if (values.value === "") {
+    if (calcInput.current.value === "") {
       setResult(0)
     } else {
       setResult(x);
-      values.value = x
+      calcInput.current.value = x
     }
     calcInput.current.focus();
     event.preventDefault();
@@ -44,7 +45,7 @@ export default function Calculator() {
   return (
     <div className="calculator">
       <div className="calc-items">
-        <form onSubmit={handleClick}>
+        <form >
           <div className="text-box">
             <input className='input-text' name="values" ref={calcInput} onFocus={(e) => e.target.readOnly = true}></input>
             <div className='result'>{result}</div>
@@ -52,7 +53,7 @@ export default function Calculator() {
 
           <div className="cols-4">
             <input className="items grey" value="AC" type="reset" onClick={() => setResult()} />
-            <input className='items green' type="button" value="x" onClick={deleteValue}/>
+            <input className='items green' type="button" value="x" onClick={deleteValue} />
             <button className='items green' onClick={addToInput}>%</button>
             <button className='items green margin-null' onClick={addToInput}>/</button>
           </div>
@@ -77,11 +78,10 @@ export default function Calculator() {
             <button className='items green margin-null' onClick={addToInput}>+</button>
           </div>
 
-          <div className="cols-4">
+          <div className="cols-4x">
             <button className='items' onClick={addToInput}>0</button>
-            <button className='items' onClick={addToInput}>00</button>
             <button className='items' onClick={addToInput}>.</button>
-            <button className='items cyan margin-null' type="submit">=</button>
+            <button className='items cyan margin-null span-2' type="submit" onClick={handleClick}>=</button>
           </div>
         </form>
 

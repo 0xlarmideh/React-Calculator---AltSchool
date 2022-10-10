@@ -61,7 +61,15 @@ body {
     }
 
     .cols-4 {
-      display: flex;
+      display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: center;
+      align-items: center;
+    }
+
+.cols-4x {
+      display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
       justify-content: center;
       align-items: center;
     }
@@ -69,13 +77,13 @@ body {
     .items {
       text-align: center;
       font-size: 1.5rem;
-      padding: 0rem;
-      width: 4.8rem;
-      height: 4.8rem;
+      padding: 1.8rem;
+/*       width: 4.8rem; */
+/*       height: 4.8rem; */
       background-color: #e3eded;
       margin-right: .7rem;
       margin-bottom: .5rem;
-      border-radius: 50%;
+/*       border-radius: 50%; */
       border: none;
       font-family: 'Orbitron', sans-serif;
       font-weight: 600;
