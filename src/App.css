@@ -19,9 +19,9 @@ body {
   gap: .5rem;
   justify-content:center;
   margin-top: 2rem;
-  grid-template-columns: repeat(4,6rem);
-  grid-template-rows: minmax(7rem,auto) repeat(5,6rem);
-  min-width: 400px;
+  grid-template-columns: repeat(4,5rem);
+  grid-template-rows: minmax(7rem,auto) repeat(5,5rem);
+/*   min-width: 400px; */
   border-radius: 1.5rem;
 }
 
@@ -33,29 +33,37 @@ body {
   grid-column: 1/-1;
   padding: 15px;
   border-radius: 1.5rem;
+  word-break: break-all; 
 }
-.text-box input{
+.text-box textarea{
       width: 100%;
-      min-height: 10rem;
+      min-height: 6rem;
       background: none;
       border: none;
   outline:none;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       text-align: right;
       font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
+      font-weight: 500;
+    }
+
+.text-box input[type='text'] {
+        word-wrap: break-word;
+        word-break: break-all;
     }
 
 .result {
-  font-size: 2.4rem;
-  height: 2rem;
-  display: flex;
+  font-size: 2.1rem;
+  min-height: 2.5rem;
   justify-content:right;
+  overflow-wrap: break-word;
+  font-weight: 600;
+  color:green;
 }
 
     .items {
       text-align: center;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       padding: 0rem;
       background-color: #f8f9fd;
       border-radius: 1.5rem;
@@ -69,7 +77,6 @@ body {
     background-color:black;
     color: white;
   }
-
 
     .clear {
       background-color: #c3eed6;
